@@ -53,6 +53,7 @@ class _StepperPageState extends State<StepperPage> {
     final canCancel = currentStep > 0;
     final canContinue = currentStep < 3;
     return CupertinoStepper(
+      disabledSvG: '',
       type: type,
       currentStep: currentStep,
       onStepTapped: (step) => setState(() => currentStep = step),

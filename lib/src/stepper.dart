@@ -6,6 +6,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart'
     show Step, ControlsWidgetBuilder, ControlsDetails, StepState, StepperType;
+import 'package:flutter_svg/svg.dart';
 export 'package:flutter/material.dart'
     show Step, ControlsWidgetBuilder, ControlsDetails, StepState, StepperType;
 
@@ -55,6 +56,7 @@ class CupertinoStepper extends StatefulWidget {
     this.onStepContinue,
     this.onStepCancel,
     this.controlsBuilder,
+    required this.disabledSvG
   })  : assert(0 <= currentStep && currentStep < steps.length),
         super(key: key);
 
@@ -72,6 +74,7 @@ class CupertinoStepper extends StatefulWidget {
   /// can be helpful to set this property to [ClampingScrollPhysics].
   final ScrollPhysics? physics;
 
+  final String disabledSvG;
   /// The type of stepper that determines the layout. In the case of
   /// [StepperType.horizontal], the content of the current step is displayed
   /// underneath as opposed to the [StepperType.vertical] case where it is
@@ -202,6 +205,13 @@ class _CupertinoStepperState extends State<CupertinoStepper>
     final bool isActive = widget.steps[index].isActive;
     switch (state) {
       case StepState.disabled:
+        return SvgPicture.asset(widget.disabledSvG,
+          color: isActive
+              ? CupertinoDynamicColor.resolve(CupertinoColors.white, context)
+              : themeData.primaryColor,
+          width: 24.0,
+          height: 24.0,
+        );
       case StepState.indexed:
         return Text(
           '${index + 1}',
@@ -224,12 +234,12 @@ class _CupertinoStepperState extends State<CupertinoStepper>
           size: _kStepFontSize,
         );
       case StepState.complete:
-        return Icon(
-          CupertinoIcons.check_mark,
+        return SvgPicture.asset(widget.disabledSvG,
           color: isActive
               ? CupertinoDynamicColor.resolve(CupertinoColors.white, context)
               : themeData.primaryColor,
-          size: _kStepFontSize * 2, // ### TODO: why is check_mark so small?
+          width: 24.0,
+          height: 24.0,
         );
       case StepState.error:
         return const Text('!',
@@ -370,9 +380,7 @@ class _CupertinoStepperState extends State<CupertinoStepper>
       case StepState.complete:
         return textTheme.navActionTextStyle;
       case StepState.disabled:
-        return textTheme.navActionTextStyle.copyWith(
-            color: CupertinoDynamicColor.resolve(
-                CupertinoColors.placeholderText, context));
+        return textTheme.navActionTextStyle;
       case StepState.error:
         return textTheme.navActionTextStyle.copyWith(
             color: CupertinoDynamicColor.resolve(
@@ -390,9 +398,7 @@ class _CupertinoStepperState extends State<CupertinoStepper>
       case StepState.complete:
         return textTheme.tabLabelTextStyle;
       case StepState.disabled:
-        return textTheme.tabLabelTextStyle.copyWith(
-            color: CupertinoDynamicColor.resolve(
-                CupertinoColors.placeholderText, context));
+        return textTheme.tabLabelTextStyle;
       case StepState.error:
         return textTheme.tabLabelTextStyle.copyWith(
             color: CupertinoDynamicColor.resolve(
