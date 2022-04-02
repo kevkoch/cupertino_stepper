@@ -238,8 +238,8 @@ class _CupertinoStepperState extends State<CupertinoStepper>
           color: isActive
               ? CupertinoDynamicColor.resolve(CupertinoColors.white, context)
               : themeData.primaryColor,
-          width: 24.0,
-          height: 24.0,
+          width: 18.0,
+          height: 18.0,
         );
       case StepState.error:
         return const Text('!',
