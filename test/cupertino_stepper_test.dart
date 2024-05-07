@@ -35,6 +35,7 @@ void main() {
                 ),
               ),
             ],
+            disabledSvG: '' ,
           ),
         ),
       ),
@@ -65,6 +66,7 @@ void main() {
                   ),
                 ),
               ],
+              disabledSvG: '',
             ),
           ),
         ),
@@ -96,6 +98,7 @@ void main() {
                   ),
                 ),
               ],
+              disabledSvG: '',
             ),
           ),
         ),
@@ -116,6 +119,7 @@ void main() {
         home: Center(
           child: Container(
             child: CupertinoStepper(
+              disabledSvG: '',
               type: StepperType.horizontal,
               steps: const <Step>[
                 Step(
@@ -152,6 +156,7 @@ void main() {
                 content: Text('B'),
               ),
             ],
+            disabledSvG: '',
           ),
         ),
       ),
@@ -164,6 +169,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             currentStep: 1,
             type: StepperType.horizontal,
             steps: const <Step>[
@@ -193,6 +199,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             type: StepperType.horizontal,
             onStepContinue: () {
               continuePressed = true;
@@ -235,6 +242,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             onStepTapped: (int i) {
               index = i;
             },
@@ -269,6 +277,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             steps: const <Step>[
               Step(
                 title: Text('Step 1'),
@@ -306,6 +315,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             currentStep: 2,
             steps: const <Step>[
               Step(
@@ -345,6 +355,7 @@ void main() {
         home: Center(
           child: Container(
             child: CupertinoStepper(
+              disabledSvG: '',
               steps: const <Step>[
                 Step(
                   title: Text('A'),
@@ -413,6 +424,7 @@ void main() {
         home: Center(
           child: Container(
             child: CupertinoStepper(
+              disabledSvG: '',
               controlsBuilder: builder,
               onStepCancel: setCanceled,
               onStepContinue: setContinue,
@@ -458,6 +470,7 @@ void main() {
         home: Center(
           child: Container(
             child: CupertinoStepper(
+              disabledSvG: '',
               steps: const <Step>[
                 Step(
                   title: Text('A'),
@@ -488,11 +501,13 @@ void main() {
         CupertinoApp(
           home: Container(
             child: CupertinoStepper(
+              disabledSvG: '',
               type: StepperType.horizontal,
               steps: <Step>[
                 Step(
                   title: const Text('Step 2'),
                   content: CupertinoStepper(
+                    disabledSvG: '',
                     type: StepperType.vertical,
                     steps: const <Step>[
                       Step(
@@ -554,6 +569,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             steps: const <Step>[
               Step(
                 title: Text('A'),
@@ -586,6 +602,7 @@ void main() {
           child: ListView(
             children: <Widget>[
               CupertinoStepper(
+                disabledSvG: '',
                 steps: const <Step>[
                   Step(title: Text('Step 1'), content: Text('Text 1')),
                   Step(title: Text('Step 2'), content: Text('Text 2')),
@@ -619,6 +636,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             currentStep: 0,
             type: StepperType.vertical,
             steps: const <Step>[
@@ -647,6 +665,7 @@ void main() {
       CupertinoApp(
         home: Container(
           child: CupertinoStepper(
+            disabledSvG: '',
             currentStep: 0,
             type: StepperType.horizontal,
             steps: const <Step>[
